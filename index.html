@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot Configuration Space (C-Space) Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>2-Joint Robot Arm &amp; C-Space Visualizer</h1>
+      <p>Adjust the joint angles to see how the physical arm moves and how its single-dot position updates in Configuration Space.</p>
+    </header>
+
+    <div class="controls">
+      <div class="control-group">
+        <label for="theta1">Joint 1 Angle (&theta;<sub>1</sub>): <span id="theta1-val">45</span>&deg;</label>
+        <input type="range" id="theta1" min="0" max="180" value="45" />
+      </div>
+      <div class="control-group">
+        <label for="theta2">Joint 2 Angle (&theta;<sub>2</sub>): <span id="theta2-val">60</span>&deg;</label>
+        <input type="range" id="theta2" min="-150" max="150" value="60" />
+      </div>
+      <div class="status" id="status-badge">Status: Safe Pose</div>
+    </div>
+
+    <div class="canvases">
+      <div class="card">
+        <h2>1. Workspace (Physical Arm)</h2>
+        <canvas id="workspaceCanvas" width="380" height="320"></canvas>
+      </div>
+      <div class="card">
+        <h2>2. Configuration Space (&theta;<sub>1</sub>, &theta;<sub>2</sub>)</h2>
+        <canvas id="cspaceCanvas" width="380" height="320"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
